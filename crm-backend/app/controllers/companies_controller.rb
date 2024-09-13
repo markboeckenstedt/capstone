@@ -7,8 +7,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.includes(:contacts).find(params[:id])
-    render json: @company, include: :contacts
+    @company = Company.includes(contacts: :activities).find(params[:id])
+    render json: @company, include: { contacts: {}, activities: { include: :contact } }
   end
 
   def create

@@ -7,6 +7,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @company = Company.find(params[:id])
+    @activities = @company.activities.includes(:contact)
     render :show
   end
 

@@ -8,7 +8,7 @@ export function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/companies">Companies</Link></li>
           <li><Link to="/contacts">Contacts</Link></li>
-          <li><Link to="/activities">Activities</Link></li>
+          {/* <li><Link to="/activities">Activities</Link></li> */}
         </ul>
       </nav>
     </header>

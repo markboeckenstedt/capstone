@@ -1,7 +1,16 @@
-export function ContactsNew({ onCreate }) {
+export function ContactsNew({ onCreate, companyId }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const params = new FormData(event.target);
+    const params = {
+      contact: {
+        first_name: event.target.first_name.value,
+        last_name: event.target.last_name.value,
+        email: event.target.email.value,
+        phone_number: event.target.phone_number.value,
+        company_id: companyId
+      }
+    };
+
     onCreate(params, () => event.target.reset());
   };
 
@@ -10,16 +19,16 @@ export function ContactsNew({ onCreate }) {
       <h1>New Contact</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          First Name: <input first_name="first_name" type="text" />
+          First Name: <input name="first_name" type="text" />
         </div>
         <div>
-          Last Name: <input last_name="last_name" type="text" />
+          Last Name: <input name="last_name" type="text" />
         </div>
         <div>
-          Email: <input email="email" type="text" />
+          Email: <input name="email" type="text" />
         </div>
         <div>
-          Phone Number: <input phone_number="phone_number" type="text" />
+          Phone Number: <input name="phone_number" type="text" />
         </div>
         <button type="submit">Create</button>
       </form>

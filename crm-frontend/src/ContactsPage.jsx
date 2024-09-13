@@ -13,7 +13,7 @@ export function ContactsPage() {
   };
 
   const handleCreate = (params, successCallback) => {
-    axios.post("https://localhost:3000/companies.json", params).then((response) => {
+    axios.post("http://localhost:3000/companies.json", params).then((response) => {
       setContacts([...contacts, response.data]);
       successCallback();
     });
@@ -23,7 +23,6 @@ export function ContactsPage() {
 
   return (
     <main>
-      <ContactsNew onCreate={handleCreate} />
       <ContactsIndex contacts={contacts} />
     </main>
   );
